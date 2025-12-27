@@ -1,0 +1,73 @@
+/* إعدادات الصفحة العامة */
+body {
+    background-color: #0b0b0b; /* أسود ملكي */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #ffffff;
+}
+
+/* الكارط الكبيرة */
+.card {
+    background-color: #1a1a1a; /* أسود فاتح شوية باش تبان الكارط */
+    padding: 40px 20px;
+    border-radius: 25px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    width: 320px;
+    border: 1px solid #d4af37; /* إطار ذهبي رقيق */
+}
+
+/* الصورة الشخصية */
+.img {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    border: 3px solid #d4af37; /* خاتم ذهبي حول الصورة */
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+h1 {
+    font-size: 22px;
+    color: #d4af37; /* لون ذهبي للسمية */
+    margin-bottom: 5px;
+}
+
+.bio {
+    font-size: 14px;
+    color: #a0a0a0;
+    margin-bottom: 25px;
+}
+
+/* صندوق الروابط */
+.links {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* الأزرار الذهبية */
+.btn {
+    text-decoration: none;
+    color: #d4af37;
+    border: 1px solid #d4af37;
+    padding: 12px;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 16px;
+    transition: all 0.4s ease;
+    background: transparent;
+}
+
+/* تأثير عند تمرير الماوس (Hover) */
+.btn:hover {
+    background-color: #d4af37;
+    color: #000;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+}
