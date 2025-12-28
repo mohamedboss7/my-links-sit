@@ -1,11 +1,11 @@
-/* استيراد خط Orbitron (البديل المثالي لـ BankGothic) */
+/* استيراد خط Orbitron البديل لـ BankGothic */
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Orbitron', sans-serif; /* الخط الجديد */
+    font-family: 'Orbitron', sans-serif;
     letter-spacing: 1.5px;
 }
 
@@ -53,7 +53,7 @@ body {
     text-align: center;
     max-width: 400px;
     width: 92%;
-    border: 1px solid rgba(212, 175, 55, 0.4);
+    border: 1px solid rgba(212, 175, 55, 0.4); /* الإطار الذهبي */
     z-index: 1;
     animation: bounceIn 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
@@ -81,12 +81,14 @@ p { color: #888; margin-bottom: 30px; font-size: 0.9rem; }
     margin-bottom: 15px;
     display: flex;
     align-items: center;
-    justify-content: flex-start; /* تنظيم الكتبة من اليسار */
+    justify-content: flex-start;
     gap: 20px;
     font-weight: 600;
     border: 1px solid rgba(212, 175, 55, 0.2);
     transition: all 0.4s ease;
-    text-transform: uppercase; /* حروف كبيرة للخط التقني */
+    text-transform: uppercase;
+    position: relative; /* ضروري لتأثير اللمعان */
+    overflow: hidden; /* ضروري لتأثير اللمعان */
 }
 
 /* توحيد عرض الأيقونات */
@@ -94,6 +96,24 @@ p { color: #888; margin-bottom: 30px; font-size: 0.9rem; }
     width: 30px; 
     text-align: center;
     font-size: 1.5rem;
+}
+
+/* تأثير اللمعان (Glow Streak) عند الـ Hover */
+.link-card::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -100%;
+    width: 20%;
+    height: 200%;
+    background: rgba(255, 255, 255, 0.2);
+    transform: rotate(30deg);
+    transition: 0s;
+}
+
+.link-card:hover::after {
+    left: 120%;
+    transition: 0.6s ease-in-out;
 }
 
 .link-card:hover {
