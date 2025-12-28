@@ -1,3 +1,4 @@
+/* إعدادات أساسية */
 * {
     margin: 0;
     padding: 0;
@@ -6,86 +7,102 @@
 }
 
 body {
-    background-color: #000; /* خلفية سوداء فخمة */
+    background-color: #000; /* خلفية سوداء ملكية */
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    overflow: hidden; /* باش الأيقونات ما يخرجوش من الصفحة */
+    overflow: hidden;
     position: relative;
 }
 
-/* ستايل الأيقونات اللي في الخلفية */
+/* ستايل الأيقونات العائمة في الخلفية */
 .bg-icons i {
     position: absolute;
-    font-size: 50px;
-    opacity: 0.2; /* خافية شوية باش ما تشوش على الأزرار */
-    animation: float 15s linear infinite;
+    font-size: 65px;
+    opacity: 0.15;
+    animation: moveAndGlow 10s linear infinite; /* سرعة أكبر (10 ثواني) */
     z-index: 0;
 }
 
-/* توزيع الأيقونات وألوانها الحقيقية في الخلفية */
+/* توزيع الأيقونات وألوانها الحقيقية مع الظل */
 .bg-icons i:nth-child(1) { top: 10%; left: 10%; color: #1877f2; animation-delay: 0s; }
-.bg-icons i:nth-child(2) { top: 70%; left: 20%; color: #e4405f; animation-delay: 2s; }
-.bg-icons i:nth-child(3) { top: 40%; left: 80%; color: #25d366; animation-delay: 4s; }
-.bg-icons i:nth-child(4) { top: 80%; left: 70%; color: #5865f2; animation-delay: 6s; }
-.bg-icons i:nth-child(5) { top: 20%; left: 60%; color: #1877f2; animation-delay: 8s; }
-.bg-icons i:nth-child(6) { top: 50%; left: 10%; color: #e4405f; animation-delay: 10s; }
+.bg-icons i:nth-child(2) { top: 70%; left: 15%; color: #e4405f; animation-delay: 2s; }
+.bg-icons i:nth-child(3) { top: 30%; left: 85%; color: #25d366; animation-delay: 4s; }
+.bg-icons i:nth-child(4) { top: 85%; left: 75%; color: #5865f2; animation-delay: 6s; }
+.bg-icons i:nth-child(5) { top: 15%; left: 60%; color: #1877f2; animation-delay: 1s; }
+.bg-icons i:nth-child(6) { top: 50%; left: 5%; color: #e4405f; animation-delay: 3s; }
+.bg-icons i:nth-child(7) { top: 40%; left: 40%; color: #25d366; animation-delay: 5s; }
+.bg-icons i:nth-child(8) { top: 5%; left: 80%; color: #5865f2; animation-delay: 7s; }
 
-/* حركة الطفو العشوائية */
-@keyframes float {
-    0% { transform: translateY(0) rotate(0deg); opacity: 0.2; }
-    50% { transform: translateY(-100px) rotate(180deg); opacity: 0.4; }
-    100% { transform: translateY(0) rotate(360deg); opacity: 0.2; }
+/* أنيماسيون الحركة السريعة مع الظل المتوهج */
+@keyframes moveAndGlow {
+    0% { 
+        transform: translate(0, 0) rotate(0deg) scale(1);
+        filter: drop-shadow(0 0 5px currentColor);
+    }
+    50% { 
+        transform: translate(60px, -100px) rotate(180deg) scale(1.3);
+        filter: drop-shadow(0 0 25px currentColor); /* ظل متوهج قوي في الوسط */
+        opacity: 0.3;
+    }
+    100% { 
+        transform: translate(0, 0) rotate(360deg) scale(1);
+        filter: drop-shadow(0 0 5px currentColor);
+    }
 }
 
+/* حاوية المحتوى الرئيسي */
 .container {
-    background: rgba(10, 10, 10, 0.8); /* واجهة سوداء شفافة */
-    backdrop-filter: blur(15px); /* تأثير الضبابية */
+    background: rgba(10, 10, 10, 0.8);
+    backdrop-filter: blur(15px);
     padding: 40px 30px;
     border-radius: 30px;
     text-align: center;
     max-width: 380px;
     width: 90%;
-    border: 1px solid rgba(212, 175, 55, 0.3);
+    border: 1px solid rgba(212, 175, 55, 0.4);
     z-index: 1;
-    animation: bounceIn 1.2s ease;
+    animation: bounceIn 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
+/* الصورة الشخصية بإطار ذهبي مضيء */
 .profile-img {
-    width: 120px;
-    height: 120px;
+    width: 130px;
+    height: 130px;
     border-radius: 50%;
-    border: 3px solid #d4af37; /* إطار ذهبي */
+    border: 3px solid #d4af37;
     margin-bottom: 15px;
-    box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+    box-shadow: 0 0 30px rgba(212, 175, 55, 0.5);
+    object-fit: cover;
 }
 
-h1 { color: #d4af37; font-size: 1.8rem; margin-bottom: 5px; }
+h1 { color: #d4af37; font-size: 2rem; margin-bottom: 5px; }
 p { color: #888; margin-bottom: 25px; }
 
+/* ستايل الأزرار */
 .link-card {
-    background: #1a1a1a;
+    background: #151515;
     color: #fff;
     text-decoration: none;
-    padding: 15px;
+    padding: 16px;
     border-radius: 15px;
-    margin-bottom: 12px;
+    margin-bottom: 15px;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 15px;
     font-weight: 600;
     border: 1px solid rgba(212, 175, 55, 0.2);
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: all 0.4s ease;
 }
 
-/* تأثير عند اللمس: اللون الحقيقي للأيقونة كيبان */
+/* تأثير اللمس: تكبير الأزرار وظهور اللون الحقيقي */
 .link-card:hover {
     transform: scale(1.05);
-    background: #000;
     border-color: #d4af37;
-    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+    background: #000;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
 }
 
 .link-card:hover i.fa-facebook-f { color: #1877f2; }
