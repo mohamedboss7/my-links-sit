@@ -1,13 +1,16 @@
-/* إعدادات أساسية */
+/* استيراد خط Orbitron (البديل المثالي لـ BankGothic) */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Orbitron', sans-serif; /* الخط الجديد */
+    letter-spacing: 1.5px;
 }
 
 body {
-    background-color: #000; /* خلفية سوداء ملكية */
+    background-color: #000;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -16,95 +19,91 @@ body {
     position: relative;
 }
 
-/* ستايل الأيقونات العائمة في الخلفية */
+/* أيقونات الخلفية: سريعة مع ظل مشع */
 .bg-icons i {
     position: absolute;
-    font-size: 65px;
+    font-size: 60px;
     opacity: 0.15;
-    animation: moveAndGlow 10s linear infinite; /* سرعة أكبر (10 ثواني) */
+    animation: moveAndGlow 10s linear infinite;
     z-index: 0;
 }
 
-/* توزيع الأيقونات وألوانها الحقيقية مع الظل */
+/* توزيع الأيقونات وألوانها */
 .bg-icons i:nth-child(1) { top: 10%; left: 10%; color: #1877f2; animation-delay: 0s; }
 .bg-icons i:nth-child(2) { top: 70%; left: 15%; color: #e4405f; animation-delay: 2s; }
 .bg-icons i:nth-child(3) { top: 30%; left: 85%; color: #25d366; animation-delay: 4s; }
 .bg-icons i:nth-child(4) { top: 85%; left: 75%; color: #5865f2; animation-delay: 6s; }
 .bg-icons i:nth-child(5) { top: 15%; left: 60%; color: #1877f2; animation-delay: 1s; }
 .bg-icons i:nth-child(6) { top: 50%; left: 5%; color: #e4405f; animation-delay: 3s; }
-.bg-icons i:nth-child(7) { top: 40%; left: 40%; color: #25d366; animation-delay: 5s; }
+.bg-icons i:nth-child(7) { top: 40%; left: 45%; color: #25d366; animation-delay: 5s; }
 .bg-icons i:nth-child(8) { top: 5%; left: 80%; color: #5865f2; animation-delay: 7s; }
 
-/* أنيماسيون الحركة السريعة مع الظل المتوهج */
 @keyframes moveAndGlow {
-    0% { 
-        transform: translate(0, 0) rotate(0deg) scale(1);
-        filter: drop-shadow(0 0 5px currentColor);
-    }
-    50% { 
-        transform: translate(60px, -100px) rotate(180deg) scale(1.3);
-        filter: drop-shadow(0 0 25px currentColor); /* ظل متوهج قوي في الوسط */
-        opacity: 0.3;
-    }
-    100% { 
-        transform: translate(0, 0) rotate(360deg) scale(1);
-        filter: drop-shadow(0 0 5px currentColor);
-    }
+    0% { transform: translate(0, 0) rotate(0deg) scale(1); filter: drop-shadow(0 0 5px currentColor); }
+    50% { transform: translate(60px, -100px) rotate(180deg) scale(1.3); filter: drop-shadow(0 0 25px currentColor); opacity: 0.3; }
+    100% { transform: translate(0, 0) rotate(360deg) scale(1); filter: drop-shadow(0 0 5px currentColor); }
 }
 
-/* حاوية المحتوى الرئيسي */
+/* الحاوية الرئيسية */
 .container {
-    background: rgba(10, 10, 10, 0.8);
+    background: rgba(10, 10, 10, 0.85);
     backdrop-filter: blur(15px);
     padding: 40px 30px;
     border-radius: 30px;
     text-align: center;
-    max-width: 380px;
-    width: 90%;
+    max-width: 400px;
+    width: 92%;
     border: 1px solid rgba(212, 175, 55, 0.4);
     z-index: 1;
     animation: bounceIn 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-/* الصورة الشخصية بإطار ذهبي مضيء */
 .profile-img {
     width: 130px;
     height: 130px;
     border-radius: 50%;
     border: 3px solid #d4af37;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
     box-shadow: 0 0 30px rgba(212, 175, 55, 0.5);
     object-fit: cover;
 }
 
-h1 { color: #d4af37; font-size: 2rem; margin-bottom: 5px; }
-p { color: #888; margin-bottom: 25px; }
+h1 { color: #d4af37; font-size: 1.8rem; margin-bottom: 8px; text-transform: uppercase; }
+p { color: #888; margin-bottom: 30px; font-size: 0.9rem; }
 
-/* ستايل الأزرار */
+/* ستايل الأزرار المنظم */
 .link-card {
-    background: #151515;
+    background: #111;
     color: #fff;
     text-decoration: none;
-    padding: 16px;
-    border-radius: 15px;
+    padding: 16px 25px;
+    border-radius: 12px;
     margin-bottom: 15px;
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 15px;
+    justify-content: flex-start; /* تنظيم الكتبة من اليسار */
+    gap: 20px;
     font-weight: 600;
     border: 1px solid rgba(212, 175, 55, 0.2);
     transition: all 0.4s ease;
+    text-transform: uppercase; /* حروف كبيرة للخط التقني */
 }
 
-/* تأثير اللمس: تكبير الأزرار وظهور اللون الحقيقي */
+/* توحيد عرض الأيقونات */
+.link-card i {
+    width: 30px; 
+    text-align: center;
+    font-size: 1.5rem;
+}
+
 .link-card:hover {
     transform: scale(1.05);
     border-color: #d4af37;
     background: #000;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
 }
 
+/* ألوان الأيقونات عند اللمس */
 .link-card:hover i.fa-facebook-f { color: #1877f2; }
 .link-card:hover i.fa-instagram { color: #e4405f; }
 .link-card:hover i.fa-whatsapp { color: #25d366; }
