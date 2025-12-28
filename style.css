@@ -1,4 +1,4 @@
-/* إعدادات الصفحة */
+/* إعدادات عامة */
 * {
     margin: 0;
     padding: 0;
@@ -7,105 +7,97 @@
 }
 
 body {
-    background-color: #000; /* الخلفية سوداء ملكية */
+    /* خلفية بألوان المنصات الحقيقية متداخلة بطريقة أنيقة */
+    background: linear-gradient(-45deg, #1877f2, #e4405f, #25d366, #5865f2);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite; /* حركة ناعمة للخلفية */
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     overflow: hidden;
-    position: relative;
 }
 
-/* أنيميشن الألوان في الخلفية */
-body::before {
-    content: '';
-    position: absolute;
-    width: 150%;
-    height: 150%;
-    /* ألوان المنصات: أزرق فيسبوك، وردي إنستا، أخضر واتساب، بنفسجي ديسكورد */
-    background: radial-gradient(circle at center, 
-        rgba(24, 119, 242, 0.15) 0%,   /* Facebook Blue */
-        rgba(228, 64, 95, 0.15) 25%,   /* Instagram Pink */
-        rgba(37, 211, 102, 0.15) 50%,  /* WhatsApp Green */
-        rgba(88, 101, 242, 0.15) 75%,  /* Discord Purple */
-        transparent 100%);
-    animation: rotateBg 15s linear infinite;
-    z-index: 0;
-}
-
-@keyframes rotateBg {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
+/* تحريك ألوان الخلفية */
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 .container {
-    position: relative;
-    z-index: 1;
+    background: rgba(0, 0, 0, 0.8); /* أسود شفاف كيعطي لمسة فخامة */
+    padding: 40px 30px;
+    border-radius: 25px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
     text-align: center;
     max-width: 400px;
     width: 90%;
-    background: rgba(0, 0, 0, 0.6); /* ضبابة سودة خفيفة باش يبان الكود */
-    padding: 40px 20px;
-    border-radius: 30px;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(212, 175, 55, 0.2);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    animation: bounceIn 1s ease; /* حركة الدخول اللي بغيتي */
 }
 
-/* الصورة الشخصية بإطار ذهبي مشع */
+/* الصورة الشخصية بإطار ذهبي */
 .profile-img {
-    width: 130px;
-    height: 130px;
+    width: 120px;
+    height: 120px;
     border-radius: 50%;
     border: 3px solid #d4af37;
-    box-shadow: 0 0 30px rgba(212, 175, 55, 0.4);
     margin-bottom: 20px;
     object-fit: cover;
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
 }
 
 h1 {
-    color: #d4af37;
-    font-size: 2rem;
-    letter-spacing: 1px;
+    color: #d4af37; /* ذهبي */
+    margin-bottom: 10px;
+    font-size: 1.8rem;
 }
 
 p {
-    color: #ccc;
+    color: #ddd;
     margin-bottom: 30px;
-    font-weight: 300;
 }
 
-/* الأزرار بالأسود والذهبي */
+/* حاوية الأزرار */
+.links-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* الأزرار سوداء بحدود ذهبية */
 .link-card {
-    background: #000;
-    color: #d4af37;
+    background: #111;
+    color: #fff;
     text-decoration: none;
-    padding: 16px;
-    border-radius: 50px; /* شكل بيضاوي أنيق */
-    margin-bottom: 15px;
+    padding: 15px;
+    border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 15px;
     font-weight: 600;
-    border: 1px solid #d4af37;
-    transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(212, 175, 55, 0.5);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* حركة ناعمة */
 }
 
-/* الحركة عند اللمس: الزر كيولي ذهبي كامل والكتابة سودة */
+/* عند تمرير الفأرة: الزر كيكبر وكيظهر اللون الحقيقي للأيقونة */
 .link-card:hover {
-    background: #d4af37;
-    color: #000;
     transform: scale(1.05);
-    box-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
+    border-color: #d4af37;
+    background: #000;
 }
 
-/* أيقونات ملونة خفيفة */
-.fa-facebook { color: #1877f2; }
-.fa-instagram { color: #e4405f; }
-.fa-whatsapp { color: #25d366; }
-.fa-discord { color: #5865f2; }
+/* ألوان الأيقونات الحقيقية تظهر فقط عند الـ Hover */
+.link-card:hover i.fa-facebook { color: #1877f2; }
+.link-card:hover i.fa-instagram { color: #e4405f; }
+.link-card:hover i.fa-whatsapp { color: #25d366; }
+.link-card:hover i.fa-discord { color: #5865f2; }
 
-/* تغيير لون الأيقونة لأسود ملي كاندوزو فوق الزر */
-.link-card:hover i {
-    color: #000;
+/* أنيميشن bounceIn */
+@keyframes bounceIn {
+    0% { opacity: 0; transform: scale(0.3); }
+    50% { opacity: 0.9; transform: scale(1.1); }
+    100% { opacity: 1; transform: scale(1); }
 }
