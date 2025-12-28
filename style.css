@@ -1,4 +1,3 @@
-/* إعدادات عامة */
 * {
     margin: 0;
     padding: 0;
@@ -7,97 +6,94 @@
 }
 
 body {
-    /* خلفية بألوان المنصات الحقيقية متداخلة بطريقة أنيقة */
-    background: linear-gradient(-45deg, #1877f2, #e4405f, #25d366, #5865f2);
-    background-size: 400% 400%;
-    animation: gradientBG 15s ease infinite; /* حركة ناعمة للخلفية */
+    background-color: #000; /* خلفية سوداء فخمة */
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    overflow: hidden;
+    overflow: hidden; /* باش الأيقونات ما يخرجوش من الصفحة */
+    position: relative;
 }
 
-/* تحريك ألوان الخلفية */
-@keyframes gradientBG {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+/* ستايل الأيقونات اللي في الخلفية */
+.bg-icons i {
+    position: absolute;
+    font-size: 50px;
+    opacity: 0.2; /* خافية شوية باش ما تشوش على الأزرار */
+    animation: float 15s linear infinite;
+    z-index: 0;
+}
+
+/* توزيع الأيقونات وألوانها الحقيقية في الخلفية */
+.bg-icons i:nth-child(1) { top: 10%; left: 10%; color: #1877f2; animation-delay: 0s; }
+.bg-icons i:nth-child(2) { top: 70%; left: 20%; color: #e4405f; animation-delay: 2s; }
+.bg-icons i:nth-child(3) { top: 40%; left: 80%; color: #25d366; animation-delay: 4s; }
+.bg-icons i:nth-child(4) { top: 80%; left: 70%; color: #5865f2; animation-delay: 6s; }
+.bg-icons i:nth-child(5) { top: 20%; left: 60%; color: #1877f2; animation-delay: 8s; }
+.bg-icons i:nth-child(6) { top: 50%; left: 10%; color: #e4405f; animation-delay: 10s; }
+
+/* حركة الطفو العشوائية */
+@keyframes float {
+    0% { transform: translateY(0) rotate(0deg); opacity: 0.2; }
+    50% { transform: translateY(-100px) rotate(180deg); opacity: 0.4; }
+    100% { transform: translateY(0) rotate(360deg); opacity: 0.2; }
 }
 
 .container {
-    background: rgba(0, 0, 0, 0.8); /* أسود شفاف كيعطي لمسة فخامة */
+    background: rgba(10, 10, 10, 0.8); /* واجهة سوداء شفافة */
+    backdrop-filter: blur(15px); /* تأثير الضبابية */
     padding: 40px 30px;
-    border-radius: 25px;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+    border-radius: 30px;
     text-align: center;
-    max-width: 400px;
+    max-width: 380px;
     width: 90%;
     border: 1px solid rgba(212, 175, 55, 0.3);
-    animation: bounceIn 1s ease; /* حركة الدخول اللي بغيتي */
+    z-index: 1;
+    animation: bounceIn 1.2s ease;
 }
 
-/* الصورة الشخصية بإطار ذهبي */
 .profile-img {
     width: 120px;
     height: 120px;
     border-radius: 50%;
-    border: 3px solid #d4af37;
-    margin-bottom: 20px;
-    object-fit: cover;
-    box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+    border: 3px solid #d4af37; /* إطار ذهبي */
+    margin-bottom: 15px;
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
 }
 
-h1 {
-    color: #d4af37; /* ذهبي */
-    margin-bottom: 10px;
-    font-size: 1.8rem;
-}
+h1 { color: #d4af37; font-size: 1.8rem; margin-bottom: 5px; }
+p { color: #888; margin-bottom: 25px; }
 
-p {
-    color: #ddd;
-    margin-bottom: 30px;
-}
-
-/* حاوية الأزرار */
-.links-container {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-/* الأزرار سوداء بحدود ذهبية */
 .link-card {
-    background: #111;
+    background: #1a1a1a;
     color: #fff;
     text-decoration: none;
     padding: 15px;
-    border-radius: 12px;
+    border-radius: 15px;
+    margin-bottom: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 15px;
     font-weight: 600;
-    border: 1px solid rgba(212, 175, 55, 0.5);
-    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* حركة ناعمة */
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-/* عند تمرير الفأرة: الزر كيكبر وكيظهر اللون الحقيقي للأيقونة */
+/* تأثير عند اللمس: اللون الحقيقي للأيقونة كيبان */
 .link-card:hover {
     transform: scale(1.05);
-    border-color: #d4af37;
     background: #000;
+    border-color: #d4af37;
+    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
 }
 
-/* ألوان الأيقونات الحقيقية تظهر فقط عند الـ Hover */
-.link-card:hover i.fa-facebook { color: #1877f2; }
+.link-card:hover i.fa-facebook-f { color: #1877f2; }
 .link-card:hover i.fa-instagram { color: #e4405f; }
 .link-card:hover i.fa-whatsapp { color: #25d366; }
 .link-card:hover i.fa-discord { color: #5865f2; }
 
-/* أنيميشن bounceIn */
 @keyframes bounceIn {
     0% { opacity: 0; transform: scale(0.3); }
-    50% { opacity: 0.9; transform: scale(1.1); }
     100% { opacity: 1; transform: scale(1); }
 }
