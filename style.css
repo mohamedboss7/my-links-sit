@@ -1,4 +1,3 @@
-/* استيراد خط Orbitron البديل لـ BankGothic */
 @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
 
 * {
@@ -19,96 +18,89 @@ body {
     position: relative;
 }
 
-/* أيقونات الخلفية: سريعة مع ظل مشع */
+/* حركة الأيقونات في الخلفية */
 .bg-icons i {
     position: absolute;
     font-size: 60px;
-    opacity: 0.15;
-    animation: moveAndGlow 10s linear infinite;
+    opacity: 0.1;
+    animation: moveAndGlow 12s linear infinite;
     z-index: 0;
 }
 
-/* توزيع الأيقونات في الخلفية */
-.bg-icons i:nth-child(1) { top: 10%; left: 10%; color: #1877f2; animation-delay: 0s; }
+.bg-icons i:nth-child(1) { top: 10%; left: 10%; color: #1877f2; }
 .bg-icons i:nth-child(2) { top: 70%; left: 15%; color: #e4405f; animation-delay: 2s; }
 .bg-icons i:nth-child(3) { top: 30%; left: 85%; color: #25d366; animation-delay: 4s; }
 .bg-icons i:nth-child(4) { top: 85%; left: 75%; color: #5865f2; animation-delay: 6s; }
-.bg-icons i:nth-child(5) { top: 15%; left: 60%; color: #1877f2; animation-delay: 1s; }
-.bg-icons i:nth-child(6) { top: 50%; left: 5%; color: #e4405f; animation-delay: 3s; }
-.bg-icons i:nth-child(7) { top: 40%; left: 45%; color: #25d366; animation-delay: 5s; }
-.bg-icons i:nth-child(8) { top: 5%; left: 80%; color: #5865f2; animation-delay: 7s; }
 
 @keyframes moveAndGlow {
-    0% { transform: translate(0, 0) rotate(0deg) scale(1); filter: drop-shadow(0 0 5px currentColor); }
-    50% { transform: translate(60px, -100px) rotate(180deg) scale(1.3); filter: drop-shadow(0 0 25px currentColor); opacity: 0.3; }
-    100% { transform: translate(0, 0) rotate(360deg) scale(1); filter: drop-shadow(0 0 5px currentColor); }
+    0% { transform: translate(0, 0) rotate(0deg); filter: drop-shadow(0 0 5px currentColor); }
+    50% { transform: translate(50px, -50px) rotate(180deg); filter: drop-shadow(0 0 20px currentColor); }
+    100% { transform: translate(0, 0) rotate(360deg); }
 }
 
-/* الحاوية الرئيسية بتأثير الزجاج والتحرك */
+/* الحاوية الزجاجية (Glassmorphism) */
 .container {
-    background: rgba(10, 10, 10, 0.7); /* زجاجي شفاف */
-    backdrop-filter: blur(20px); /* ضبابية قوية */
+    background: rgba(15, 15, 15, 0.7);
+    backdrop-filter: blur(20px);
     padding: 40px 30px;
     border-radius: 30px;
     text-align: center;
     max-width: 400px;
-    width: 92%;
+    width: 90%;
     border: 1.5px solid rgba(212, 175, 55, 0.3);
-    box-shadow: 0 0 40px rgba(0, 0, 0, 0.8), 
-                inset 0 0 15px rgba(212, 175, 55, 0.1); /* لمعان داخلي ذهبي */
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.9), inset 0 0 15px rgba(212, 175, 55, 0.1);
     z-index: 1;
-    /* أنيميشن الدخول + أنيميشن الطفو المستمر */
-    animation: bounceIn 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275),
-               floatingCard 4s ease-in-out infinite;
+    animation: floatingCard 4s ease-in-out infinite;
 }
 
 @keyframes floatingCard {
-    0% { transform: translateY(0); }
+    0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-12px); }
-    100% { transform: translateY(0); }
 }
 
+/* صورة البروفايل */
 .profile-img {
-    width: 130px;
-    height: 130px;
+    width: 120px;
+    height: 120px;
     border-radius: 50%;
     border: 3px solid #d4af37;
     margin-bottom: 20px;
-    box-shadow: 0 0 30px rgba(212, 175, 55, 0.5);
+    box-shadow: 0 0 25px rgba(212, 175, 55, 0.4);
     object-fit: cover;
 }
 
-h1 { color: #d4af37; font-size: 1.8rem; margin-bottom: 8px; text-transform: uppercase; }
-p { color: #888; margin-bottom: 30px; font-size: 0.9rem; }
+h1 { color: #d4af37; font-size: 1.6rem; text-transform: uppercase; margin-bottom: 5px; }
+p { color: #777; font-size: 0.8rem; margin-bottom: 25px; }
 
-/* ستايل الأزرار بلمسة اللمعان */
+/* تصميم الأزرار */
+.links {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
 .link-card {
     background: #111;
     color: #fff;
     text-decoration: none;
-    padding: 16px 25px;
+    padding: 15px 20px;
     border-radius: 12px;
-    margin-bottom: 15px;
     display: flex;
     align-items: center;
-    justify-content: flex-start;
-    gap: 20px;
-    font-weight: 600;
-    border: 1px solid rgba(212, 175, 55, 0.2);
-    transition: all 0.4s ease;
-    text-transform: uppercase;
+    gap: 15px;
+    border: 1px solid rgba(212, 175, 55, 0.15);
+    transition: 0.4s;
     position: relative;
     overflow: hidden;
 }
 
-/* توحيد عرض الأيقونات */
 .link-card i {
-    width: 30px; 
+    width: 25px;
+    font-size: 1.3rem;
     text-align: center;
-    font-size: 1.5rem;
 }
 
-/* تأثير اللمعان السريع عند الـ Hover */
+/* تأثير اللمعان (Shine Effect) */
 .link-card::after {
     content: '';
     position: absolute;
@@ -116,30 +108,25 @@ p { color: #888; margin-bottom: 30px; font-size: 0.9rem; }
     left: -100%;
     width: 20%;
     height: 200%;
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.15);
     transform: rotate(30deg);
-    transition: 0s;
+    transition: 0.6s;
 }
 
 .link-card:hover::after {
     left: 120%;
-    transition: 0.6s ease-in-out;
 }
 
 .link-card:hover {
-    transform: scale(1.05);
+    transform: scale(1.03);
     border-color: #d4af37;
     background: #000;
-    box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
 }
 
-/* تلوين الأيقونات الحقيقي */
+/* ألوان الأيقونات عند التمرير */
 .link-card:hover i.fa-facebook-f { color: #1877f2; }
 .link-card:hover i.fa-instagram { color: #e4405f; }
 .link-card:hover i.fa-whatsapp { color: #25d366; }
 .link-card:hover i.fa-discord { color: #5865f2; }
-
-@keyframes bounceIn {
-    0% { opacity: 0; transform: scale(0.3); }
-    100% { opacity: 1; transform: scale(1); }
-}
+.link-card:hover i.fa-envelope { color: #db4437; } /* لون Gmail */
