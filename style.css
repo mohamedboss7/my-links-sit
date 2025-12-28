@@ -1,87 +1,111 @@
-/* إعدادات عامة */
+/* إعدادات الصفحة */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 body {
-    background-color: #0f172a; /* لون غامق وأنيق للخلفية */
-    color: white;
+    background-color: #000; /* الخلفية سوداء ملكية */
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    padding: 20px;
+    overflow: hidden;
+    position: relative;
+}
+
+/* أنيميشن الألوان في الخلفية */
+body::before {
+    content: '';
+    position: absolute;
+    width: 150%;
+    height: 150%;
+    /* ألوان المنصات: أزرق فيسبوك، وردي إنستا، أخضر واتساب، بنفسجي ديسكورد */
+    background: radial-gradient(circle at center, 
+        rgba(24, 119, 242, 0.15) 0%,   /* Facebook Blue */
+        rgba(228, 64, 95, 0.15) 25%,   /* Instagram Pink */
+        rgba(37, 211, 102, 0.15) 50%,  /* WhatsApp Green */
+        rgba(88, 101, 242, 0.15) 75%,  /* Discord Purple */
+        transparent 100%);
+    animation: rotateBg 15s linear infinite;
+    z-index: 0;
+}
+
+@keyframes rotateBg {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
 }
 
 .container {
+    position: relative;
+    z-index: 1;
     text-align: center;
     max-width: 400px;
-    width: 100%;
+    width: 90%;
+    background: rgba(0, 0, 0, 0.6); /* ضبابة سودة خفيفة باش يبان الكود */
+    padding: 40px 20px;
+    border-radius: 30px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(212, 175, 55, 0.2);
 }
 
-/* ستايل الصورة الشخصية مع أنيميشن */
+/* الصورة الشخصية بإطار ذهبي مشع */
 .profile-img {
-    width: 120px;
-    height: 120px;
+    width: 130px;
+    height: 130px;
     border-radius: 50%;
-    border: 3px solid #ffd700;
+    border: 3px solid #d4af37;
+    box-shadow: 0 0 30px rgba(212, 175, 55, 0.4);
     margin-bottom: 20px;
     object-fit: cover;
-    animation: bounceIn 1s ease; /* حركة الدخول */
 }
 
 h1 {
-    font-size: 1.8rem;
-    margin-bottom: 10px;
+    color: #d4af37;
+    font-size: 2rem;
+    letter-spacing: 1px;
 }
 
 p {
-    color: #94a3b8;
+    color: #ccc;
     margin-bottom: 30px;
+    font-weight: 300;
 }
 
-/* حاوية الأزرار */
-.links-container {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-/* ستايل الأزرار الموحد */
+/* الأزرار بالأسود والذهبي */
 .link-card {
-    background-color: #1e293b;
-    color: white;
+    background: #000;
+    color: #d4af37;
     text-decoration: none;
-    padding: 15px;
-    border-radius: 12px;
+    padding: 16px;
+    border-radius: 50px; /* شكل بيضاوي أنيق */
+    margin-bottom: 15px;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 12px;
+    gap: 15px;
     font-weight: 600;
-    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid #d4af37;
+    transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* تأثير عند تمرير الفأرة (Hover) */
+/* الحركة عند اللمس: الزر كيولي ذهبي كامل والكتابة سودة */
 .link-card:hover {
+    background: #d4af37;
+    color: #000;
     transform: scale(1.05);
-    background-color: #334155;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
 }
 
-/* ألوان خاصة بكل منصة عند الـ Hover */
-.link-card:hover i.fa-facebook { color: #1877f2; }
-.link-card:hover i.fa-instagram { color: #e4405f; }
-.link-card:hover i.fa-whatsapp { color: #25d366; }
-.link-card:hover i.fa-discord { color: #5865f2; }
+/* أيقونات ملونة خفيفة */
+.fa-facebook { color: #1877f2; }
+.fa-instagram { color: #e4405f; }
+.fa-whatsapp { color: #25d366; }
+.fa-discord { color: #5865f2; }
 
-/* أنيميشن الدخول */
-@keyframes bounceIn {
-    0% { opacity: 0; transform: scale(0.3); }
-    50% { opacity: 0.9; transform: scale(1.1); }
-    100% { opacity: 1; transform: scale(1); }
+/* تغيير لون الأيقونة لأسود ملي كاندوزو فوق الزر */
+.link-card:hover i {
+    color: #000;
 }
