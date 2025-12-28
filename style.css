@@ -28,7 +28,7 @@ body {
     z-index: 0;
 }
 
-/* توزيع الأيقونات وألوانها */
+/* توزيع الأيقونات في الخلفية */
 .bg-icons i:nth-child(1) { top: 10%; left: 10%; color: #1877f2; animation-delay: 0s; }
 .bg-icons i:nth-child(2) { top: 70%; left: 15%; color: #e4405f; animation-delay: 2s; }
 .bg-icons i:nth-child(3) { top: 30%; left: 85%; color: #25d366; animation-delay: 4s; }
@@ -44,18 +44,28 @@ body {
     100% { transform: translate(0, 0) rotate(360deg) scale(1); filter: drop-shadow(0 0 5px currentColor); }
 }
 
-/* الحاوية الرئيسية */
+/* الحاوية الرئيسية بتأثير الزجاج والتحرك */
 .container {
-    background: rgba(10, 10, 10, 0.85);
-    backdrop-filter: blur(15px);
+    background: rgba(10, 10, 10, 0.7); /* زجاجي شفاف */
+    backdrop-filter: blur(20px); /* ضبابية قوية */
     padding: 40px 30px;
     border-radius: 30px;
     text-align: center;
     max-width: 400px;
     width: 92%;
-    border: 1px solid rgba(212, 175, 55, 0.4); /* الإطار الذهبي */
+    border: 1.5px solid rgba(212, 175, 55, 0.3);
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.8), 
+                inset 0 0 15px rgba(212, 175, 55, 0.1); /* لمعان داخلي ذهبي */
     z-index: 1;
-    animation: bounceIn 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    /* أنيميشن الدخول + أنيميشن الطفو المستمر */
+    animation: bounceIn 1.2s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+               floatingCard 4s ease-in-out infinite;
+}
+
+@keyframes floatingCard {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+    100% { transform: translateY(0); }
 }
 
 .profile-img {
@@ -71,7 +81,7 @@ body {
 h1 { color: #d4af37; font-size: 1.8rem; margin-bottom: 8px; text-transform: uppercase; }
 p { color: #888; margin-bottom: 30px; font-size: 0.9rem; }
 
-/* ستايل الأزرار المنظم */
+/* ستايل الأزرار بلمسة اللمعان */
 .link-card {
     background: #111;
     color: #fff;
@@ -87,8 +97,8 @@ p { color: #888; margin-bottom: 30px; font-size: 0.9rem; }
     border: 1px solid rgba(212, 175, 55, 0.2);
     transition: all 0.4s ease;
     text-transform: uppercase;
-    position: relative; /* ضروري لتأثير اللمعان */
-    overflow: hidden; /* ضروري لتأثير اللمعان */
+    position: relative;
+    overflow: hidden;
 }
 
 /* توحيد عرض الأيقونات */
@@ -98,7 +108,7 @@ p { color: #888; margin-bottom: 30px; font-size: 0.9rem; }
     font-size: 1.5rem;
 }
 
-/* تأثير اللمعان (Glow Streak) عند الـ Hover */
+/* تأثير اللمعان السريع عند الـ Hover */
 .link-card::after {
     content: '';
     position: absolute;
@@ -120,10 +130,10 @@ p { color: #888; margin-bottom: 30px; font-size: 0.9rem; }
     transform: scale(1.05);
     border-color: #d4af37;
     background: #000;
-    box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
 }
 
-/* ألوان الأيقونات عند اللمس */
+/* تلوين الأيقونات الحقيقي */
 .link-card:hover i.fa-facebook-f { color: #1877f2; }
 .link-card:hover i.fa-instagram { color: #e4405f; }
 .link-card:hover i.fa-whatsapp { color: #25d366; }
