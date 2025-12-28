@@ -1,73 +1,87 @@
-/* إعدادات الصفحة العامة */
-body {
-    background-color: #0b0b0b; /* أسود ملكي */
+/* إعدادات عامة */
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #0f172a; /* لون غامق وأنيق للخلفية */
+    color: white;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #ffffff;
+    padding: 20px;
 }
 
-/* الكارط الكبيرة */
-.card {
-    background-color: #1a1a1a; /* أسود فاتح شوية باش تبان الكارط */
-    padding: 40px 20px;
-    border-radius: 25px;
+.container {
     text-align: center;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-    width: 320px;
-    border: 1px solid #d4af37; /* إطار ذهبي رقيق */
+    max-width: 400px;
+    width: 100%;
 }
 
-/* الصورة الشخصية */
-.img {
-    width: 110px;
-    height: 110px;
+/* ستايل الصورة الشخصية مع أنيميشن */
+.profile-img {
+    width: 120px;
+    height: 120px;
     border-radius: 50%;
-    border: 3px solid #d4af37; /* خاتم ذهبي حول الصورة */
+    border: 3px solid #ffd700;
+    margin-bottom: 20px;
     object-fit: cover;
-    margin-bottom: 15px;
+    animation: bounceIn 1s ease; /* حركة الدخول */
 }
 
 h1 {
-    font-size: 22px;
-    color: #d4af37; /* لون ذهبي للسمية */
-    margin-bottom: 5px;
+    font-size: 1.8rem;
+    margin-bottom: 10px;
 }
 
-.bio {
-    font-size: 14px;
-    color: #a0a0a0;
-    margin-bottom: 25px;
+p {
+    color: #94a3b8;
+    margin-bottom: 30px;
 }
 
-/* صندوق الروابط */
-.links {
+/* حاوية الأزرار */
+.links-container {
     display: flex;
     flex-direction: column;
     gap: 15px;
 }
 
-/* الأزرار الذهبية */
-.btn {
+/* ستايل الأزرار الموحد */
+.link-card {
+    background-color: #1e293b;
+    color: white;
     text-decoration: none;
-    color: #d4af37;
-    border: 1px solid #d4af37;
-    padding: 12px;
-    border-radius: 10px;
-    font-weight: bold;
-    font-size: 16px;
-    transition: all 0.4s ease;
-    background: transparent;
+    padding: 15px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    font-weight: 600;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* تأثير عند تمرير الماوس (Hover) */
-.btn:hover {
-    background-color: #d4af37;
-    color: #000;
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+/* تأثير عند تمرير الفأرة (Hover) */
+.link-card:hover {
+    transform: scale(1.05);
+    background-color: #334155;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* ألوان خاصة بكل منصة عند الـ Hover */
+.link-card:hover i.fa-facebook { color: #1877f2; }
+.link-card:hover i.fa-instagram { color: #e4405f; }
+.link-card:hover i.fa-whatsapp { color: #25d366; }
+.link-card:hover i.fa-discord { color: #5865f2; }
+
+/* أنيميشن الدخول */
+@keyframes bounceIn {
+    0% { opacity: 0; transform: scale(0.3); }
+    50% { opacity: 0.9; transform: scale(1.1); }
+    100% { opacity: 1; transform: scale(1); }
 }
